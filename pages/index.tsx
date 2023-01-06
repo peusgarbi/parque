@@ -51,7 +51,7 @@ function MyPage() {
         color: 'black',
         text: 'Distribuição de Acertos',
         font: {
-          style: "bold",
+          weight: 'bold',
           size: 30
         }
       },
