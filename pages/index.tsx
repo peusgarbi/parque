@@ -24,12 +24,11 @@ function MyPage() {
         data: createNormalDistribution(0, 100, 101),
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
+        borderWidth: 1
       }
     ]
   }
   const options: ChartOptions<'line'> = {
-    fill: false,
     responsive: true,
     maintainAspectRatio: false,
     scales: {
