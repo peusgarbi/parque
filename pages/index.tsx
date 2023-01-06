@@ -25,13 +25,6 @@ function MyPage() {
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
-        type: 'bar'
-      },
-      {
-        data: createNormalDistribution(0, 100, 101),
-        backgroundColor: 'rgba(0, 99, 132, 0.2)',
-        borderColor: 'rgba(0, 99, 132, 1)',
-        borderWidth: 1,
       }
     ]
   }
