@@ -17,7 +17,7 @@ let delayed: boolean = true
 function MyPage() {
 
   const numbers = []
-  const data: ChartData<'line'> = {
+  const data: ChartData<'bar'> = {
     labels: simuladoTendencias.numeroDeAcertos,
     datasets: [
       {
@@ -25,12 +25,11 @@ function MyPage() {
         data: simuladoTendencias.numeroDeAlunos,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
-        tension: 0.3
+        borderWidth: 1
       }
     ]
   }
-  const options: ChartOptions<'line'> = {
+  const options: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
