@@ -6,23 +6,21 @@ import Head from 'next/head'
 import Link from 'next/link';
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { getStats } from '../scripts/numbers'
-import { createNormalDistribution } from '../scripts/createNormalDistribution'
-import { simuladoTendencias } from '../scripts/data.js'
+import { dataSimuladoTendencias } from '../scripts/simulationData';
+import { getStats } from '../scripts/simulationDataParser.js'
 
 const inter = Inter({ subsets: ['latin'] })
 Chart.register(...registerables)
 let delayed: boolean = true
 
 function MyPage() {
-
-  const numbers = []
+  const numbers = getStats(dataSimuladoTendencias)
   const data: ChartData<'bar'> = {
-    labels: simuladoTendencias.numeroDeAcertos,
+    labels: numbers.correctAnswers,
     datasets: [
       {
         label: 'Número de Alunos',
-        data: simuladoTendencias.numeroDeAlunos,
+        data: numbers.numberOfStudentsPerCorrectAnswers,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1
@@ -57,7 +55,7 @@ function MyPage() {
       subtitle: {
         display: true,
         color: 'blue',
-        text: `Média: ${simuladoTendencias.mean}; Mediana: ${simuladoTendencias.median}; Variancia: ${simuladoTendencias.variance}; Desvio Padrão: ${simuladoTendencias.stdDev}`
+        text: `Média: ${numbers.mean}; Mediana: ${numbers.median}; Variancia: ${numbers.variance}; Desvio Padrão: ${numbers.stdDev}`
       }
     },
     scales: {
